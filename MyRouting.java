@@ -284,6 +284,7 @@ public class MyRouting implements IOFMessageListener, IFloodlightModule {
 					reversed.add(printingRoute.get(i));
 					System.out.print(" " + printingRoute.get(i));
 				}
+				System.out.println();
 			}
 				if (route != null)
 				{
