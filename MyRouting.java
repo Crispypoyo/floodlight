@@ -261,29 +261,28 @@ public class MyRouting implements IOFMessageListener, IFloodlightModule {
 					{
 						nextNode.remove(0);
 					}
-					
-					List<Long> printingRoute = new ArrayList<Long>();
-					Boolean bool = true;
-					Long next = eth.getDestinationMAC().toLong();
-					while(bool)
+				}
+				List<Long> printingRoute = new ArrayList<Long>();
+				Boolean bool = true;
+				Long next = eth.getDestinationMAC().toLong();
+				while(bool)
+				{
+					printingRoute.add(next);
+					if(parentNode.get(next) == next)
 					{
-						printingRoute.add(next);
-						if(parentNode.get(next) == next)
-						{
-							bool = false;
-						}
-						else
-						{
-							next = parentNode.get(next);
-						}
+						bool = false;
 					}
-					List<Long> reversed = new ArrayList<Long>();
-					System.out.print("route:");
-					for(int i = printingRoute.size() - 1; i >= 0; i--)
+					else
 					{
-						reversed.add(printingRoute.get(i));
-						System.out.print(" " + printingRoute.get(i));
+						next = parentNode.get(next);
 					}
+				}
+				List<Long> reversed = new ArrayList<Long>();
+				System.out.print("route:");
+				for(int i = printingRoute.size() - 1; i >= 0; i--)
+				{
+					reversed.add(printingRoute.get(i));
+					System.out.print(" " + printingRoute.get(i));
 				}
 			}
 				if (route != null)
