@@ -1,7 +1,7 @@
 /*******************
 
 Team members and IDs:
-Joseph Bermudez 6052768
+Joseph Bermudez - 6052768
 
 Github link:
 https://github.com/Crispypoyo/floodlight
